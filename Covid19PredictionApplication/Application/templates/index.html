@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Prediction</title>
+    <style>
+        .child {
+            width: 45%;
+            text-align: center;
+            float: left;
+            padding: 30px;
+            border: 2px solid rgb(0, 0, 0);
+        }  
+        body{
+            text-align: center;
+        }
+        select{
+            width: 100%;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid rgb(255, 0, 0);
+        }
+        input{
+            width: 99%;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid rgb(255, 0, 0);
+        }
+        .button {
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="child" style="text-align: justify;">
+        <div style="text-align: center;">
+            <h1>{{data}}</h1>
+        </div>
+        <h3>Maintain a safe distance from others, even if they don’t appear to be sick.</h3>
+        <h3>Wear a mask in public, especially indoors or when physical distancing is not possible.</h3>
+        <h3>Choose open, well-ventilated spaces over closed ones. Open a window if indoors.</h3>
+        <h3>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</h3>
+        <h3>Get vaccinated when it’s your turn. Follow local guidance about vaccination.</h3>
+        <h3>Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</h3>
+        <h3>Stay home if you feel unwell.</h3>
+    </div>
+    <div class="child">
+        <form action="/check" method="post">
+            <h1>FILL THE BELOW FORM</h1>
+            <input type="text" name="name" id="name" placeholder="Enter your fullname." required>
+            <input type="tel" name="phone" id="phone" placeholder="Enter phone number." required>
+            <select name="s1" id="s1" required>
+                <option selected value="n">Breathing Problem</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s2" id="s2" required>
+                <option selected value="n">Fever</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s3" id="s3" required>
+                <option selected value="n">Dry Cough</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s4" id="s4" required>
+                <option selected value="n">Sore throat</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s5" id="s5" required>
+                <option selected value="n">Running Nose</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s6" id="s6" required>
+                <option selected value="n">Asthma</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s7" id="s7" required>
+                <option selected value="n">Chronic Lung Disease</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s8" id="s8" required>
+                <option selected value="n">Headache</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s9" id="s9" required>
+                <option selected value="n">Heart Disease</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s10" id="s10" required>
+                <option selected value="n">Diabetes</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s11" id="s11" required>
+                <option selected value="n">Hyper Tension</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s12" id="s12" required>
+                <option selected value="n">Fatigue</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s13" id="s13" required>
+                <option selected value="n">Gastrointestinal</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s14" id="s14" required>
+                <option selected value="n">Abroad travel</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s15" id="s15" required>
+                <option selected value="n">Contact with COVID Patient</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s16" id="s16" required>
+                <option selected value="n">Attended Large Gathering</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s17" id="s17" required>
+                <option selected value="n">Visited Public Exposed Places</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s18" id="s18" required>
+                <option selected value="n">Family working in Public Exposed Places</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s19" id="s19" required>
+                <option selected value="n">Wearing Masks</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <select name="s20" id="s20" required>
+                <option selected value="n">Sanitization from Market</option>
+                <option value="y">YES</option>
+                <option value="n">NO</option>
+            </select><br>
+            <button class="button" type="submit"><span>Check </span></button>
+        </form>
+    </div>
+</body>
+</html>
